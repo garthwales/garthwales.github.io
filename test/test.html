@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+    <Title>test.exe</Title>
+    <meta charset="utf-8" /> 
+    <link rel="stylesheet" href="timer.css">
+
+    <!-- test.css basically lul-->
+    <!-- possibly create this as apart of timer.css .... -->
+    <style>
+        html { font: normal normal normal 1em/1.4 verdana,sans-serif }
+
+        .custom
+        {
+            font-weight:bold;
+            font-style: italic;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="timer_1" class="timer">
+        <input class="tButtonsTop tDeleteButton" value="-" type="button">
+        <input class="tButtonsTop tSettingButton" value="cfg." type="button">
+        <fieldset class="tFace tWindow">
+            <legend>30 Sec, Repeat</legend>
+            <p>00:30</p>
+            <input class="tButtonsBottom" value="Start" type="button">
+            <input class="tButtonsBottom" value="Reset" type="button">
+        </fieldset>
+        <fieldset class="tSettings tWindow" hidden="">
+            <!--filled in below-->
+        </fieldset>
+    </div>
+
+    <div id="timer_2" class="timer">
+        <input class="tButtonsTop tDeleteButton" value="-" type="button">
+        <input class="tButtonsTop tSettingButton" value="cfg." type="button">
+        <fieldset class="tFace tWindow" hidden="">
+            <!--filled in above-->
+        </fieldset>
+        <fieldset class="tSettings tWindow"> <!-- dont forget to add hidden when adding back to above-->
+            <legend>Settings</legend>
+            
+            <div class="tSettingField">
+                <p>Time</p>
+                <input type="text" default="00:00:30" placeholder="hh:mm:ss" title="Time">
+            </div>
+            <div class="tSettingField">
+                    <p>Name</p>
+                    <input type="checkbox" default="True" placeholder="Name" title="Name">
+                </div>
+            <div class="tSettingField">
+                <p>Volume</p>
+                <input type="range" min = "1" default="50" max="100" title="Volume">
+            </div>
+            <div class="tSettingField">
+                <p>Audio File</p>
+                <input type="file" default="/big.mp3" placeholder="big.mp3" title="File">
+            </div>
+            <div class="tSettingField">
+                <p>Audio Test</p>
+                <input type="image" src="img/timer/audioTest.png" title="Test Audio">
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- why is this a form it can be changed to a div -->
+    <form id="newTimer" action="javascript:void(0);">
+        <fieldset class="newTimer">
+            <input class="newTimer" type="image" alt="" src="../img/timer/p.png">
+        </fieldset>
+    </form>
+    <!--<script type="text/javascript" src="timer.js"></script>-->
+    <!--<script type="text/javascript" src="devReload.js"></script>-->
+
+
+
+
+
+    <!-- ########################## -->
+    <!--           TESTING          -->
+    <!-- ########################## -->
+    <select id="fileDropdown">
+        <option value="big.mp3">big.mp3</option>
+        <option id="fileSelect" value="custom">
+            <span class="custom" style="color: black;">choose file</span>
+        </option>
+    </select>
+    <input id = "fileElem" type="file" hidden="" accept="audio/*">
+    <audio constrols id="tAudio"></audio>
+    <!-- use inputElement.addEventListener("change", handleFiles, false); instead of onchange potentially -->
+    <!-- can do accept with .gif,.png,video/* etc etc--> <!-- https://www.w3schools.com/tags/att_input_accept.asp -->
+    
+    <script type="text/javascript">
+        var fileSelect = document.getElementById("fileSelect"),
+            fileElem = document.getElementById("fileElem"),
+            fileDropdown = document.getElementById("fileDropdown"),
+            fileAudio = document.getElementById("tAudio");
+
+
+        fileSelect.addEventListener("click", function (e) 
+        {
+            fileElem.click();
+        }, false);
+        //fileSelect.addEventListener("change", handleAudio, false)
+
+        fileElem.addEventListener("change", handleFiles, false)
+
+        function handleFiles()
+        {
+            var reader = new FileReader(),
+                files = this.files;
+                file = files[0]
+
+            var newOption = document.createElement("option")
+            newOption.innerHTML = "<span class='custom'>" + file.name + "</span>"
+            newOption.className = file.name
+            newOption.value = file.name
+            fileDropdown.insertBefore(newOption, fileSelect)
+            fileDropdown.value = newOption.value
+
+            reader.onload = function(e)
+            {
+                //console.log(e.target.result)
+                newOption.value = e.target.result           //change it so it adds to list and every cfg pulls from the list..
+                fileAudio.setAttribute('src', e.target.result)
+                fileAudio.play()
+            }
+            //change ^ into onchange for filelem and use value for .target.result
+            
+            //to "stop" or repeat sections
+            //fileAudio.pause();
+            //fileAudio.currentTime = 0;
+
+            reader.readAsDataURL(file)
+
+            /*for (var i = 0; i < files.length; i++)
+            for the purpose of multiple files if ever needed...
+            */
+        }
+    </script>
+</body>

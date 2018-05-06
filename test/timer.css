@@ -1,0 +1,115 @@
+.timer
+{
+    width:      240px;
+}
+
+.tButtonsTop
+{
+    position: absolute;
+    background-color: white;
+    padding: 0;
+    border: 1px solid grey;
+    position: absolute;
+    font-weight: bold;
+    /* these ones are replaced in .tSettingButton */
+    width: 20px;
+    margin: 0 0 0 95%;
+}
+
+.tSettingButton
+{
+    width:          40px;
+    margin-left:    72%;
+}
+
+/* currently not being used so consider deleting later...
+.tDeleteButton 
+{
+    
+}
+*/
+.timer p
+{
+    font-size:      40px;
+    margin-bottom:  25px;
+    margin-top:     0;
+}
+
+.tSettingField
+{
+    height: 15px;
+    padding-bottom: 10px;
+}
+
+.tSettingField p
+{
+    float:left;
+    font-size: 1em;
+    margin: 0 0 0 0;
+}
+
+.tSettingField input
+{
+    float:right;
+    width: 50%;
+    padding-top: 0;
+}
+
+.tButtonsBottom
+{
+    width:      60px;
+    padding:    2px 8px;
+    font-size:  1em;
+    margin:     0 10px 10px 0;
+}
+
+/* currently no classes for either tButtonBottom */
+
+.tWindow
+{
+    width:  216px;
+    height: 140px;
+    padding: 10px 10px 0 10px;
+}
+
+.tSettings
+{
+    overflow-y: auto;
+}
+
+.timer legend
+{
+    font-weight: bold;
+}
+
+.timer, #newTimer
+{
+    position:   relative;
+    float:      left;
+    margin:     20px;
+}
+
+.newTimer 
+{
+    height:     138.7px;
+    width:      138.7px;
+    margin:     0;
+    padding:    0;
+}
+
+.settings
+{
+    overflow-y: auto;
+}
+
+.tSettings input[type="range"] 
+{
+    margin: 0px;
+}
+
+.tSettings input[type="image"]
+{
+    height: 22px;
+    width: 22px;
+    padding-right: 40%;
+}

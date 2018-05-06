@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <Title>test.exe/audio</Title>
+        <meta charset="utf-8" /> 
+    </head>
+
+
+    <!-- more song like -->
+    <script>
+        a=new AudioContext()
+        function k(w,x,y)
+        {
+            console.log(w+x+y)
+            v=a.createOscillator()
+            u=a.createGain()
+            v.connect(u)
+            v.frequency.value=x
+            v.type="square"
+            u.connect(a.destination)
+            u.gain.value=w*0.01
+            v.start(a.currentTime)
+            v.stop(a.currentTime+y*0.001)
+        }
+        setInterval(function(){ k(10,233,100); k(3,603,200)}, 1000)
+        setInterval(function(){ k(8,1646,100); k(8,1444,100) }, 500)
+        setInterval(function(){ k(8,728,100); k(8,728,100) }, 3000)
+        setInterval(function(){ k(8,728,100); k(8,728,100) }, 3000)
+        setInterval(function(){ k(8,364,100); k(8,364,100) }, 6000)
+        setInterval(function(){ k(8,364,100); k(8,157,200) }, 12000)
+    </script>
+
+    <!-- more timer beep like -->
+    <script>
+        a=new AudioContext()
+        function k(w,x,y)
+        {
+            console.log(w+x+y)
+            v=a.createOscillator()
+            u=a.createGain()
+            v.connect(u)
+            v.frequency.value=x
+            v.type="square"
+            u.connect(a.destination)
+            u.gain.value=w*0.01
+            v.start(a.currentTime)
+            v.stop(a.currentTime+y*0.001)
+        }
+        setInterval(function(){ k(10,233,100); k(3,603,200)}, 1500)
+    </script>
+</html>
