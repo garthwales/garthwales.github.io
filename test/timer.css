@@ -61,6 +61,10 @@
     padding:    2px 8px;
     font-size:  1em;
     margin:     0 10px 10px 0;
+    /* this is just testing the color changes */
+        /* unintended sideeffect of removing default clicking effect.. */
+    background-color: #fafafa;
+    border: 1px solid grey;
 }
 
 /* currently no classes for either tButtonBottom */
@@ -107,6 +111,10 @@
     margin: 0px;
 }
 
+
+/*  this is for the test audio button, consider similar thing for
+    the exit and config tButtonsTop... (change those to images)
+*/
 .tSettings input[type="image"]
 {
     height: 22px;
