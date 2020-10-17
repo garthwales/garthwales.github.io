@@ -33,7 +33,9 @@
             if(y<22 && y>=0 && x>=0 && x<79 && D>z[o])
             {
               z[o]=D;
-              b[o]=".,-~:;=!*#$@"[N>0?N:0];
+              // b[o]=".,-~:;=!*#$@"[N>0?N:0];
+              // Reverse the order for a white background raytracer
+              b[o]="@$#*!=;:~-,."[N>0?N:0];
             }
           }
         }
