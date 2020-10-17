@@ -51,6 +51,7 @@
         }
       };
       asciiframe();
+      anim1();
     }
     
     if(document.all)

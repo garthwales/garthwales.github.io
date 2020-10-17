@@ -22,25 +22,20 @@ html, body
 
 header
 {
-    margin: 0;
+    margin-left: 2%;
+    margin-top: 2%;
     height:100px;
-}
-
-header p
-{
-    margin: 30px;
-    color: rgb(0, 0, 0);
 }
 
 .center
 {
     margin: auto;
     width: 50%;
-    padding-top: 10%;
 }
 
 .home
 {
     text-decoration: none;
-    color: black;
+    margin: auto;
+    color: rgb(0, 0, 0);
 }
