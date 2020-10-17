@@ -32,87 +32,9 @@ header p
     color: rgb(0, 0, 0);
 }
 
-/* consider adding a default center class for base.css...
 .center
 {
     margin: auto;
     width: 50%;
     padding-top: 10%;
 }
-
-.centerImage
-{
-
-}
-*/
-
-/* footer 
-{
-    position: absolute;
-    bottom:0;
-    width: 100%;
-    display: inline-block;
-    margin: 20% 0 0;
-    height: 70px;
-    background-color: rgb(223, 223, 223);
-    width: 100%;
-}
-footer .copyright 
-{
-    width: 45%;
-    float: left;
-}
-
-footer p 
-{
-    padding-left: 10%;
-    color: rgb(0, 0, 0);
-    font-size: 0.7em;
-    line-height: 70px;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    margin:0;
-}
-
-footer .social 
-{
-    width: 55%;
-    float: right;
-}
-
-footer a 
-{
-    float: left;
-    line-height: 70px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-weight: bold; 
-}
-
-footer a:hover 
-{
-    background-color: rgba(255, 255, 255, 0.068);
-    color: rgb(0, 0, 0);
-}
-
-footer .contact 
-{
-    background-color: #333333;
-    font-size: 1.2em;
-    width: 40%;
-}
-
-footer .twitter 
-{
-    background-color: #00aced;
-    font-size: 1.2em;
-    width: 30%;
-}
-
-footer .steam 
-{
-    background-color: #000000;
-    font-size: 1.2em;
-    width: 30%;
-} */

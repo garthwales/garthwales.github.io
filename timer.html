@@ -3,8 +3,8 @@
     <head>
         <title>Timer</title>
         <meta charset="utf-8" /> 
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="timer - Copy.css">
+        <link rel="stylesheet" href="base.css">
+        <link rel="stylesheet" href="timer.css">
     </head>
 
     <body>
@@ -17,71 +17,6 @@
             </fieldset>
         </form>
 
-        <script type="text/javascript" src="timer - Copy.js"></script>
+        <script type="text/javascript" src="timer.js"></script>
     </body>
 </html>
-
-
-<!-- <form id="timer">
-    <fieldset>
-        <legend>Timer 1</legend>
-        <p name ="timerDisplay">00:00</p>
-
-        <button id="toggleTimer" class="toggleButton" type="button">Start</button>
-        <button id="resetTimer" type="button">Reset</button>
-    </fieldset>
-</form> -->
-
-<!-- 
-        var timeouts = {}
-
-        
-        function timer(form)
-        {
-            //create the timer speed, a counter and a starting timestamp
-			var speed = 50,
-			counter = 0, 
-            start = new Date().getTime();
-
-            function instance()
-            {
-                //work out the real and ideal elapsed time
-				//var real = (counter * speed),
-				//ideal = (new Date().getTime() - start);
-				
-				//increment the counter
-				//counter++;
-
-				//form.timerDisplay.value = ideal;
-
-				//calculate and display the difference
-				var diff = (ideal - real);
-
-				//delete the difference from the speed of the next instance
-				timeouts[form.id] = window.setTimeout(function() { instance(); }, (speed - diff));
-            }
-
-            //now kick everything off with the first timer instance
-			timeouts[form.id] = window.setTimeout(function() { instance(); }, speed);
-        }
-
-
-        === 'none' ? 'block' : 'none';
-
-         function startTimer()
-        {
-            timer(this)
-            this.type= "reset"
-            this.innerHtml = "Stop"
-            console.log("started" + this.id)
-            return(false)
-        }
-
-        function stopTimer()
-        {
-            window.clearTimeout(timeouts[this.id]);
-            this.type= "submit"
-            this.innerHtml = "Start"
-            console.log("stopped" + this.id)
-            return false
-        }  -->
