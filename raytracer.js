@@ -43,6 +43,7 @@
       };
     
       window.anim1 = function() {
+        console.log("anim toggled");
         if(tmr1 === undefined) {
           tmr1 = setInterval(asciiframe, 50);
         } else {
