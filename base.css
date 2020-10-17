@@ -38,3 +38,9 @@ header p
     width: 50%;
     padding-top: 10%;
 }
+
+.home
+{
+    text-decoration: none;
+    color: black;
+}
