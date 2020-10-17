@@ -1,3 +1,8 @@
+// TODO:    Can actually change all forms to divs
+//          use inputElement.addEventListener("change", handleFiles, false); instead of onchange potentially
+//          .tSettings input[type="image"] to set height: 22px;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Number of timers made for the unique id values of each
 var count = 0
 var defaultTimeInSeconds = "60"
