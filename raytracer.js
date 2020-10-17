@@ -43,7 +43,6 @@
       };
     
       window.anim1 = function() {
-        console.log("anim toggled");
         if(tmr1 === undefined) {
           tmr1 = setInterval(asciiframe, 50);
         } else {
@@ -52,7 +51,7 @@
         }
       };
       asciiframe();
-      anim1();
+      anim1(); // This means it will start on. Click to toggle off.
     }
     
     if(document.all)
