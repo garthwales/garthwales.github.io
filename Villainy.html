@@ -4,15 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Villainy</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
+    <link rel="shortcut icon" href="villainy/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="villainy/TemplateData/style.css">
+    <link rel="stylesheet" href="base.css">
+    <script src="Villainy/TemplateData/UnityProgress.js"></script>
+    <script src="Villainy/Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/FinalBuild.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "villainy/Build/FinalBuild.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
+    <header>
+      <a class="home" href="/">garth.wales</a>
+    </header>
     <div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 540px"></div>
       <div class="footer">
