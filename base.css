@@ -33,6 +33,12 @@ header
     width: 50%;
 }
 
+.content
+{
+    width:90%;
+    margin: auto;
+}
+
 .home
 {
     text-decoration: none;
