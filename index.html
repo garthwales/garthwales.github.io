@@ -18,27 +18,29 @@
             <h1>About me</h1>
             <!-- Personal details div -->
             <div class="container"> 
-                <div>
+                <div class="about">
                     <h2>Garth <br> &nbsp &nbsp Wales</h2>
                     <br>
                     <p>Dunedin, New Zealand</p>
                 </div>
-                <div>
+                <div class="about">
+                    <p>Check out my</p>
                     <ul>
                         <li><a href="/cv">CV</a></li>
-                        <br>
-                        <li><a href="https://github.com/GenericPath">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/garth-wales/">LinkedIn</a></li>
-                        <br>
+                        <li><a target="_blank" href="https://github.com/GenericPath">GitHub</a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/garth-wales/">LinkedIn</a></li>
+                    </ul>
+                    or contact me
+                    <ul>
                         <li><a href="mailto:mail@garth.wales">mail@garth.wales</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="about">
                     <p><b>Bachelor of Science</b></p>
                     <p>Major in Computer Science</p>
                     <p>Minor in Mathematics</p>
                 </div>
-                <div class="image_frame"><img class="resize_center" src="img/Graduation.JPG"></div>
+                <div class="image_frame about"><img class="resize_center" src="img/Graduation.JPG" alt="Graduation image" title="Garth Wales, 2020"></div>
             </div>
 
             <h1>Projects</h1>
@@ -47,14 +49,15 @@
                 <div class="image_frame"><img class="resize_center" src="img/360.png"></div>
 
                 <div>
-                    <p><b>Villainy</b></p>
-                    <p>A reverse tower defence game created in 6 weeks by a group of four.</p>
-                    <p>My role was the lead programmer / designer.</p>
+                    <p><b>Villainy</b> (Unity / C#)</p>
+                    <p>A reverse tower defence game created in 6 weeks for COSC360 by a group of four students.</p>
+                    <p>My role was lead programmer / lead designer.</p>
+                    <a target="_blank" href="https://github.com/GenericPath/Villainy"><img width="33%" src="img/GitHub-Logo.png"></a>
                 </div>
 
                 <div>
-                    <div class="content_bottom">
-                        <a href="https://github.com/GenericPath/Villainy"><img width="33%" src="img/GitHub-Logo.png"></a>
+                    <div>
+                        <a target="_blank" href="https://cosc360.otago.ac.nz/games/2020/Villainy/"><img height="30%" src="img/360-Logo.png"></a>
                     </div>
                 </div>
             </div>
@@ -64,17 +67,25 @@
                 <div class="image_frame"><img class="resize_center" src="img/345.png"> </div>
 
                 <div>
-                    <p><b>OpenOtago</b></p>
+                    <p><b>OpenOtago</b> (Kotlin)</p>
                     <p>OpenOtago is an open source android replacement to Univeristy of Otago's online resources</p>
-                    <p>This was made by a group of 3 for COSC345, written in Kotlin. Features full CI pipelines.</p>
+                    <p>Developed by a group of 3 for COSC345. Features full CI pipelines.</p>
+                    <a target="_blank" href="https://github.com/genericpath/345"><img width="33%" src="img/GitHub-Logo.png"></a>
+                    <a target="_blank" href="https://f-droid.org/en/packages/com.otago.open/"><img width="33%" src="img/fdroid-logo-text.png"></a>
                 </div>
 
                 <div>
-                    <div class="content_bottom"> 
-                        <p> Find us on github or download the app from F-Droid</p>
-                        <a href="https://github.com/genericpath/345"><img width="33%" src="img/GitHub-Logo.png"></a>
-                        <a href="https://f-droid.org/en/packages/com.otago.open/"><img width="33%" src="img/fdroid-logo-text.png"></a>
-                    </div>
+                    <p>Status</p>
+                    <a href="https://github.com/GenericPath/345/actions?query=workflow%3ATests"> <img src="https://github.com/GenericPath/345/workflows/Tests/badge.svg"> </a>
+                    <br>
+                    <a href="https://github.com/GenericPath/345/actions?query=workflow%3ABuild"> <img src="https://github.com/GenericPath/345/workflows/Build/badge.svg"> </a>
+                    <br><br>
+                    <a href="https://zyviax.github.io/345Documentation/app/index.html"> <img src="https://github.com/GenericPath/345/workflows/Documentation/badge.svg"> </a>
+                    <br><br>
+                    <a href="https://www.codacy.com/manual/garth.dhnz/345?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GenericPath/345&amp;utm_campaign=Badge_Grade"> <img src="https://app.codacy.com/project/badge/Grade/69862f4fa1f84105979181bf83eb4340"> </a>
+                    <br>
+                    <a href="https://codecov.io/gh/GenericPath/345"> <img src="https://codecov.io/gh/GenericPath/345/branch/master/graph/badge.svg"> </a>
+
                 </div>
             </div>
 
@@ -85,49 +96,51 @@
                 </div>
 
                 <div>
-                    <p><b>JS13k</b></p>
-                    <p>HTML5 and JavaScript Game Development Competition in just 13 kB. <br><br>I competed in 2017 where the theme was "Lost"</p>
+                    <p><b>JS13k</b> (JavaScript)</p>
+                    <p>HTML5 and JavaScript game development competition over two weeks, in just 13 kB. <br><br>I competed in 2017 where the theme was "Lost"</p>
+                    <a target="_blank" href="https://github.com/GenericPath/js13k-17/"><img width="33%" src="img/GitHub-Logo.png"></a>
                 </div>
 
                 <div>
-                    <div class="content_bottom">
-                        <a href="/js13k/game"><h1>js13k game</h1></a>
+                    <a class="button" href="/js13k/game"><h1>Play Here</h1></a>
+                </div>
+            </div>
+
+            <!-- Ray Tracer-->
+            <div class="container">
+                <div class="image_frame">
+                    <img class="resize_center" src="img/342.png">
+                </div>
+
+                <div>
+                    <p><b>Ray Tracer</b> (C++)</p>
+                    <p>A Ray Tracer with Plane, Cube, Sphere, Cylinder & Octahedrons.</p>
+                    <p>Incldues lighting such as directional, point and spot. Colour is calculated from the diffuse, specular and mirror components.</p>
+                    <a target="_blank" href="https://github.com/GenericPath/RayTracer"><img width="33%" src="img/GitHub-Logo.png"></a>
+                </div>
+
+                <div>
+                    <div class="bottom_content">
+
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="image_frame">
-    
-                    </div>
-    
-                    <div>
-    
-                    </div>
-    
-                    <div>
-                        <div class="bottom_content">
-    
-                        </div>
-                    </div>
-    
+            </div>
+
+            <!-- Website one -->
+            <div class="container">
+                <div class="image_frame">
+
                 </div>
-    
-                <!-- Website one -->
-                <div class="container">
-                    <div class="image_frame">
-    
+
+                <div>
+                    <p><b>https://garth.wales</b> (HTML+CSS)</p>
+                </div>
+
+                <div>
+                    <div class="bottom_content">
+                        
                     </div>
-    
-                    <div>
-                        <b></b>
-                    </div>
-    
-                    <div>
-                        <div class="bottom_content">
-                            
-                        </div>
-                    </div>
-    
                 </div>
 
             </div>

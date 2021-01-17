@@ -53,13 +53,13 @@ header {
 .container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content:flex-start;
     min-width: 0;
 
     position:relative;
 
-    /* border: 1px solid lightblue; */
+    /* border: 2px dashed grey; */
 }
 
 .image_frame {
@@ -79,10 +79,30 @@ header {
 }
 
 .container > div {
-    width:31%;
+    width:30%;
     margin:1%;
     height: 250px;
 
     /* border: 2px dashed black; */
+    min-width: 270px;
+}
+
+.container > div.about {
+    width:22%;
+    margin:1%;
+    min-width: 184px;
+}
+
+.button:link, .home:visited {
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover, .home:active {
+    background-color: lightsteelblue;
 }
 
