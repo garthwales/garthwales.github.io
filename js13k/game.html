@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head><title>Lost Drifter</title></head>
+<head>
+    <title>Lost Drifter</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
 
 <style>
     html { background-color: white;}
-    body {   
+    body {   /* Change this to only change the content on this page for example, so we can have this within the actual body*/
         background-color: #333;
         width: 800px; 
         height: 800px;
@@ -62,9 +65,12 @@
 </style>
 
 <body>
+    <header class = "zero_margin">
+        <a class="home" href="/">garth.wales</a>
+    </header>
     <!--<img src="t.png">-->
     <h1>Lost Drifter</h1>
-    <canvas id='c' width="800" height="400">Unsupported</canvas>
+    <canvas id='c' width="800" height="400">If you are viewing this it means it is unsupported :(</canvas>
     <p>Asteroid Field Level: <span id="round-value"></span></p>
     <p>Navigation is down. You are lost.<br>An asteroid field comes into vision. <br>Your last hope is to dodge.</p>
     <p>Good luck!</p>

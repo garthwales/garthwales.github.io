@@ -6,8 +6,8 @@
         <!-- base css for all pages... provides the sheet of paper look  -->
         <link rel="stylesheet" href="base.css">
         <!-- Raytracer css and js -->
-        <link rel="stylesheet" href="raytracer.css">
-        <script type="text/javascript" src="octahedron.js"></script>
+        <!-- <link rel="stylesheet" href="raytracer.css">
+        <script type="text/javascript" src="octahedron.js"></script> -->
     </head>
 
     <body>
@@ -15,11 +15,91 @@
             <a class="home" href="/">garth.wales</a>
         </header>
         <div class="content">
-            <a href="/js13k/game"><h1>js13k game</h1></a>
-            <a href="/Villainy"><h1 class="game">Villainy</h1></a>
+            <h1>About me</h1>
+            <!-- Personal details div -->
+            <div class="container"> 
+                <div>
+                    <h2>Garth <br> &nbsp &nbsp Wales</h2>
+                    <br>
+                    <p>Dunedin, New Zealand</p>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="/cv">CV</a></li>
+                        <br>
+                        <li><a href="https://github.com/GenericPath">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/garth-wales/">LinkedIn</a></li>
+                        <br>
+                        <li><a href="mailto:mail@garth.wales">mail@garth.wales</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p><b>Bachelor of Science</b></p>
+                    <p>Major in Computer Science</p>
+                    <p>Minor in Mathematics</p>
+                </div>
+                <div class="image_frame"><img class="resize_center" src="img/Graduation.JPG"></div>
+            </div>
+
+            <h1>Projects</h1>
+            <!-- COSC360 div-->
+            <div class="container">
+                <div class="image_frame"><img class="resize_center" src="img/360.png"></div>
+
+                <div>
+                    <p><b>Villainy</b></p>
+                    <p>A reverse tower defence game created in 6 weeks by a group of four.</p>
+                    <p>My role was the lead programmer / designer.</p>
+                </div>
+
+                <div>
+                    <div class="content_bottom">
+                        <a href="https://github.com/GenericPath/Villainy"><img width="33%" src="img/GitHub-Logo.png"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COSC345 div -->
+            <div class="container">
+                <div class="image_frame"><img class="resize_center" src="img/345.png"> </div>
+
+                <div>
+                    <p><b>OpenOtago</b></p>
+                    <p>OpenOtago is an open source android replacement to Univeristy of Otago's online resources</p>
+                    <p>This was made by a group of 3 for COSC345, written in Kotlin. Features full CI pipelines.</p>
+                </div>
+
+                <div>
+                    <div class="content_bottom"> 
+                        <p> Find us on github or download the app from F-Droid</p>
+                        <a href="https://github.com/genericpath/345"><img width="33%" src="img/GitHub-Logo.png"></a>
+                        <a href="https://f-droid.org/en/packages/com.otago.open/"><img width="33%" src="img/fdroid-logo-text.png"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JS13k div-->
+            <div class="container">
+                <div class="image_frame">
+                    <img class="resize_center" src="img/LostDrifter.png">
+                </div>
+
+                <div>
+                    <p><b>JS13k</b></p>
+                    <p>HTML5 and JavaScript Game Development Competition in just 13 kB. <br><br>I competed in 2017 where the theme was "Lost"</p>
+                </div>
+
+                <div>
+                    <div class="content_bottom">
+                        <a href="/js13k/game"><h1>js13k game</h1></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <a href="/Villainy"><h1 class="game">Villainy</h1></a>
             <a href="/timer"><h1 class="game">Test timer page</h1></a>
-            <a href="/raytracer-docs/index"><h1 class="game">Raytracer Doxygen documentation</h1></a>
+            <a href="/raytracer-docs/index"><h1 class="game">Raytracer Doxygen documentation</h1></a> -->
         </div>        
-        <pre onclick="anim();" id="d"></pre>
+        <!-- <pre onclick="anim();" id="d"></pre> -->
     </body>
 </html>
