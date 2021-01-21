@@ -1,8 +1,3 @@
-// TODO:    Can actually change all forms to divs
-//          use inputElement.addEventListener("change", handleFiles, false); instead of onchange potentially
-//          .tSettings input[type="image"] to set height: 22px;
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //Number of timers made for the unique id values of each
 var count = 0
 var defaultTimeInSeconds = "60"
@@ -110,20 +105,20 @@ function createTimer()
         //<input tad-va="time" placeholder="hh" onfocus="ifc(this,'h')" pattern="[0-9]*\s*([aApP][mM])?" maxlength="5" size="3" id="hour" name="hour" title="Please enter the hour of the day as a one or two-digit number, with an optional 'am' or 'pm' suffix. The valid ranges are from 00 to 23 if you choose to use the 24-hour clock format, and from 12 am to 11 pm if you choose to use the 12-hour clock format." type="text">
 }
 
-function createInput(Type,id,Value) 
+function createInput(Type,Class,Value) // caps because class is a reserved keyword apparently..
 {
     var newInput = document.createElement("input")
     newInput.type = Type
 
-    if (Type === "image" && id == "settings") newInput.src="img/timer/s.png" //still need to fix the img and add it
-    if (Type === "image" && id == "TestButton") newInput.src="img/timer/audioTest.png"
+    if (Type === "image" && Class == "settings") newInput.src="img/timer/s.png" //still need to fix the img and add it
+    if (Type === "image" && Class == "TestButton") newInput.src="img/timer/audioTest.png"
 
     if (Type === "range")
     {
         newInput.min="1"
         newInput.max="100"
     }
-    newInput.id = id
+    newInput.className = Class
     newInput.value = Value
     return newInput
 }
@@ -162,4 +157,4 @@ function testAudio(form)
     return false
 }
 
-if (count == 0) createTimer()
+if (count == 0) createTimer() 

@@ -75,7 +75,7 @@ header {
 
 .content_bottom {
     position: absolute;
-    bottom: 5%;
+    bottom: 9%;
 }
 
 .container > div {
@@ -93,24 +93,12 @@ header {
     min-width: 184px;
 }
 
-.button:link, .home:visited {
-    border-radius: 5px;
-    border: 1px solid grey;
-    background-color: white;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    display: inline-block;
-}
-
-.button:hover, .home:active {
-    background-color: lightsteelblue;
-}
-
 header img {
     text-align: center;
-    padding-right: 10px;
-    height: 30px;
-    max-width: 120px;
+    padding-right: 2px;
+    padding-left: 2px;
+    height: 25px;
+    max-width: 110px;
     vertical-align: middle;
 }
 
@@ -123,11 +111,16 @@ header img {
     display: inline-block;
     position: absolute;
     right: 20px;
+    height: 42px;
 }
 
-/* .play_button {
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-} */
+.raytracer {
+    padding-top: 15%;
+    display: inline-block;
+    vertical-align: middle;
+}
 
+.raytracer img {
+    width: 30%;
+    height: 33%;
+}
