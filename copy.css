@@ -1,80 +1,66 @@
 html {
-    background-color: rgb(250, 250, 250);
     font:normal normal normal 1em/1.4 verdana,sans-serif;
+    background-image: url("img/trans-bg2.png");
+    background-color:skyblue;
 }
 
 body {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    max-width: 1050px;
-    padding: 0 0 20px 0;
-    margin: 20px auto 80px auto;
+    margin: 0;
 }
 
-html, body {
-    min-height:100vh;
-    overflow:auto;
-}
-
-header {
-    margin-left: 2%;
-    margin-top: 2%;
-    height:100px;
-}
-
-.center {
-    margin: auto;
-    width: 50%;
-}
-
-.content {
-    width:90%;
-    margin: auto;
-}
-
-.item {
-    display: inline-flex;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.26);
-}
-
-.item img {
-    width:20%;
-}
-
-.item p {
-    margin:auto;
-    font-style: italic;
-    width:30%;
-}
-
-.item a {
-    margin:auto;
-    width:30%;
-}
+/* header{
+    border: 1px dashed black;
+} */
 
 .home:link, .home:visited {
-    background-color: white;
-    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 1);
     padding: 10px 5px;
     text-decoration: none;
     display: inline-block;
 }
 
 .home:hover, .home:active {
-    background-color: lightsteelblue;
+    color: rgba(0, 0, 0, 0.5)
 }
 
-.zero_margin {
+.banner {
+    position:relative;
+}
+
+.banner-img {
+    display:block;
+    width: 100%;
+    height: 25vh;
+}
+
+.banner-text {
+    position:absolute;
+    text-align: center;
     margin:0;
-    height: 50px;
+    height:25vh;
+    width:100%;
 }
 
-img {
-    display: block;
+.banner-text h1 {
+    margin:0;
 }
 
-.container > div {
-    float: left;
+section {
+    background-color: white;
+}
+
+p {
+    margin:0;
+}
+
+@media (min-width: 1200px) {
+    .banner-text h1 {
+        font-size: 105px;
+    }
+}
+
+@media (min-width: 768px) {
+    .banner-text h1 {
+        font-size: 80px;
+    }
 }
