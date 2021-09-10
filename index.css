@@ -27,7 +27,7 @@ header h1 {
     font-family: 'Overpass', monospace;
     color: aliceblue;
     font-weight: 700;
-    font-size: 3em;
+    font-size: 3.2em;
     display:block;
     margin: 0;
 }
@@ -50,4 +50,5 @@ header span {
 
 .content .text-content {
     margin-top: 50px;
+    font-size: 1.2em;
 }
