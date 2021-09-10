@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+header, .content {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    height: 100vh;
+    min-height: 350px;
+    background-color: #222222;
+}
+
+.text-content {
+    width: 70%;
+    margin: auto;
+}
+
+header h1 {
+    font-family: 'Overpass', monospace;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 3em;
+    display:block;
+    margin: 0;
+}
+
+header span {
+    font-family: 'Overpass', sans-serif;
+    color:darkgray;
+    font-weight: 300;
+    font-size: 1em;
+    margin: 0;
+    margin-left: 0.28em;
+}
+
+.content {
+    min-height: 100vh;
+    background-color: aliceblue;
+    color: #222222;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content .text-content {
+    margin-top: 50px;
+}

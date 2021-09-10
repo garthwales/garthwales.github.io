@@ -1,167 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>garth.wales</title>
-        <meta charset="utf-8" /> 
-        <!-- base css for all pages... provides the sheet of paper look  -->
-        <link rel="stylesheet" href="base.css">
-        <!-- Raytracer css and js -->
-        <!-- <link rel="stylesheet" href="raytracer.css">
-        <script type="text/javascript" src="octahedron.js"></script> -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Garth Wales</title>
+        <meta name="description" content="Garth Wales - Computer Science Student">
+        <meta name="robots" content="all">
+        <meta name="author" content="Garth Wales">
+        <link rel="canonical" href="https://garth.wales/">
+
+        <!-- Google -->
+        <meta name="googlebot" content="index,follow">
+        <meta name="google" content="notranslate">
+
+        <!-- Open Graph -->
+        <meta property="og:description" content="Garth Wales - Computer Science Student">
+        <meta property="og:site_name" content="Garth Wales">
+        <meta property="og:title" content="Garth Wales">
+        <meta property="og:url" content="https://garth.wales/">
+
+        <!-- Twitter -->
+        <!-- <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@garthwales">
+        <meta name="twitter:title" content="Garth Wales">
+        <meta name="twitter:description" content="Garth Wales">
+        <meta name="twitter:url" content="https://garth.wales/"> -->
+
+        <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="index.css">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Overpass&family=Roboto&display=swap" rel="stylesheet"> 
     </head>
 
     <body>
         <header>
-            <a class="home" href="/">garth.wales</a>
-            <div class="right-justify">
-                <a class="home" target="_blank" href="/cv.pdf"><img src="img/cv.png" alt="CV"></a>
-                <a class="home"  target="_blank" href="https://github.com/GenericPath"><img src="img/GitHub-Logo.png" alt="GitHub"></a>
-                <a class="home"  target="_blank" href="https://www.linkedin.com/in/garth-wales/"><img src="img/linkedin-logo.png" alt="LinkedIn"></a>
+            <div class="text-content">
+                <h1>Garth Wales</h1>
+                <span>Masters Student, Artificial Intelligence</span><br><br>
+                <span>University of Otago</span><br>
             </div>
         </header>
         <div class="content">
-            <a target = "_blank" href="https://github.com/GenericPath"><img src="https://ghchart.rshah.org/GenericPath" alt="GenericPath's Github chart" /></a>
-            <h1>About me</h1>
-            <!-- Personal details div -->
-            <div class="container"> 
-                <div class="about">
-                    <h2>Garth <br> &nbsp &nbsp Wales</h2>
-                    <p>Dunedin, New Zealand</p>
-                </div>
-                <!-- Can use <section> tags to define you know.. sections.. like the different projects etc -->
-                <div class="about">
-                    <p>Contact me at</p>
-                    <ul>
-                        <li><a href="mailto:mail@garth.wales">mail@garth.wales</a></li>
-                    </ul>
-                </div>
-                <div class="about">
-                    <p><b>Bachelor of Science</b></p>
-                    <p>Major in Computer Science</p>
-                    <p>Minor in Mathematics</p>
-                </div>
-                <div class="image_frame about"><img class="resize_center" src="img/Graduation.JPG" alt="Graduation image" title="Garth Wales, 2020"></div>
+            <div class="text-content">
+                hi, i'm garth.<br>
+            <br><br>
+                currently i'm involved with<br>
+                - <a href="https://github.com/genericpath/480" target="_blank">reinforcement learning for face detection</a><br>
+                - <a href="https://www.cs.otago.ac.nz/cosc244/" target="_blank">244</a>/<a href="https://www.cs.otago.ac.nz/cosc242/" target="_blank">242</a> lab demonstrating<br>
+            <br><br>
+                in the past i have worked on<br>
+                - <a href="https://github.com/genericpath/Villainy" target="_blank">Villainy</a>, a reverse tower defence game in c#<br>
+                - <a href="https://github.com/genericpath/345" target="_blank">OpenOtago</a>, an open source replacement to uni resources in kotlin<br>
+                - <a href="https://github.com/GenericPath/RayTracer" target="_blank">Ray Tracer</a>, supporting octahedrons in c++<br>
+                - <a href="https://github.com/GenericPath/js13k-17" target="_blank">Js13k 2017</a>, a javascript gamejam in just 13kb<br>
+                - <a href="https://github.com/GenericPath/genericpath.github.io" target="_blank">This website!</a><br>
+            <br><br>
+                links<br>
+                - <a target="_blank" href="https://www.linkedin.com/in/garth-wales/">linkedin</a><br>
+                - <a target="_blank" href="https://github.com/GenericPath">github</a><br>
+                - <a target="_blank" href="cv.pdf">cv</a>
+            <br><br>
+                <b>email me at </b><a href="mailto:mail@garth.wales">mail@garth.wales</a>
             </div>
 
-            <h1>Projects</h1>
-            <!-- COSC360 div-->
-            <div class="container">
-                <div class="image_frame"><img class="resize_center" src="img/360.png"></div>
-
-                <div>
-                    <p><b>Villainy</b> (Unity / C#)</p>
-                    <p>A reverse tower defence game created in 6 weeks for COSC360 by a group of four students.</p>
-                    <p>My role was lead programmer / lead designer.</p>
-                    <a target="_blank" href="https://github.com/GenericPath/Villainy"><img width="33%" src="img/GitHub-Logo.png"></a>
-                </div>
-
-                <div>
-                    <div>
-                        <p>Planning documents</p>
-                        <ul>
-                            <li><a target="_blank" href="https://github.com/GenericPath/Villainy/wiki">Game design document</a></li>
-                            <li><a target="_blank" href="https://github.com/GenericPath/Villainy/wiki/Economy">Economy of resources</a></li>
-                            <li><a target="_blank" href="https://github.com/GenericPath/Villainy/wiki/LevelDesign">Level Design</a></li>
-                        </ul>
-                        <a class="button content_bottom" target="_blank" href="/Villainy"><img class="home" width="50%" src="img/play.png"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- COSC345 div -->
-            <div class="container">
-                <div class="image_frame"><img class="resize_center" src="img/345.png"> </div>
-
-                <div>
-                    <p><b>OpenOtago</b> (Kotlin)</p>
-                    <p>OpenOtago is an open source android replacement to Univeristy of Otago's online resources</p>
-                    <p>Developed by a group of 3 for COSC345, it features full CI pipelines.</p>
-                    <a target="_blank" href="https://github.com/genericpath/345"><img width="33%" src="img/GitHub-Logo.png"></a>
-                    <a target="_blank" href="https://f-droid.org/en/packages/com.otago.open/"><img width="33%" src="img/fdroid-logo-text.png"></a>
-                </div>
-
-                <div>
-                    <p>CI Status</p>
-                    <a href="https://github.com/GenericPath/345/actions?query=workflow%3ATests"> <img src="https://github.com/GenericPath/345/workflows/Tests/badge.svg"> </a>
-                    <br>
-                    <a href="https://github.com/GenericPath/345/actions?query=workflow%3ABuild"> <img src="https://github.com/GenericPath/345/workflows/Build/badge.svg"> </a>
-                    <br><br>
-                    <a href="https://zyviax.github.io/345Documentation/app/index.html"> <img src="https://github.com/GenericPath/345/workflows/Documentation/badge.svg"> </a>
-                    <br><br>
-                    <a href="https://www.codacy.com/manual/garth.dhnz/345?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GenericPath/345&amp;utm_campaign=Badge_Grade"> <img src="https://app.codacy.com/project/badge/Grade/69862f4fa1f84105979181bf83eb4340"> </a>
-                    <br>
-                    <a href="https://codecov.io/gh/GenericPath/345"> <img src="https://codecov.io/gh/GenericPath/345/branch/master/graph/badge.svg"> </a>
-
-                </div>
-            </div>
-
-            <!-- JS13k div-->
-            <div class="container">
-                <div class="image_frame">
-                    <img class="resize_center" src="img/LostDrifter.png">
-                </div>
-
-                <div>
-                    <p><b>JS13k</b> (JavaScript)</p>
-                    <p>HTML5 and JavaScript game development competition over two weeks, in just 13 kB. <br><br>I competed in 2017 where the theme was "Lost"</p>
-                    <a target="_blank" href="https://github.com/GenericPath/js13k-17/"><img width="33%" src="img/GitHub-Logo.png"></a>
-                </div>
-
-                <div>
-                    <a class="button content_bottom" href="/js13k/game"><img class="home" width="50%" src="img/play.png"></a>
-                </div>
-            </div>
-
-            <!-- Ray Tracer-->
-            <div class="container">
-                <div class="image_frame">
-                    <img class="resize_center" src="img/342.png">
-                </div>
-
-                <div>
-                    <p><b>Ray Tracer</b> (C++)</p>
-                    <p>A Ray Tracer with Plane, Cube, Sphere, Cylinder & Octahedrons.</p>
-                    <p>Includes lighting such as directional, point and spot. Colour is calculated from the diffuse, specular and mirror components.</p>
-                    <a target="_blank" href="https://github.com/GenericPath/RayTracer"><img width="33%" src="img/GitHub-Logo.png"></a>
-                </div>
-
-                <div>
-                    <div class="raytracer">
-                        <img src="img/raytracer/1.png">
-                        <img src="img/raytracer/2.png">
-                        <img src="img/raytracer/3.png">
-                        <img src="img/raytracer/4.png">
-                        <img src="img/raytracer/5.png">
-                        <img src="img/raytracer/6.png">
-                        <p><em>The progression of the raytracer</em></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Website one -->
-            <div class="container">
-                <div class="image_frame">
-                    <img class="resize_center" src="img/website.png">
-                </div>
-
-                <div>
-                    <p><b>https://garth.wales</b></p>
-                    <p>A website to showcase some of my projects. Eventually I might work on a raytracing, rotating, ASCII octahedron. Like the donut from <a href="https://www.a1k0n.net/2011/07/20/donut-math.html">here</a>.</p>
-                    <br>
-                    <a target="_blank" href="https://github.com/GenericPath/genericpath.github.io"><img width="33%" bottom="0" src="img/GitHub-Logo.png"></a>
-                </div>
-
-                <div>
-
-                </div>
-
-            </div>
             
-            <!-- <a href="/Villainy"><h1 class="game">Villainy</h1></a>
-            <a href="/timer"><h1 class="game">Test timer page</h1></a>
-            <a href="/raytracer-docs/index"><h1 class="game">Raytracer Doxygen documentation</h1></a> -->
-        </div>        
-        <!-- <pre onclick="anim();" id="d"></pre> -->
+        </div>
     </body>
 </html>
