@@ -36,7 +36,7 @@ def get_pdf_link(url):
     # Convert the hrefs to absolute URLs
     abs_pdf_hrefs = [requests.compat.urljoin(url, href) for href in pdf_hrefs]
 
-    return abs_pdf_hrefs[-2] # Latest is always the last, so should be updated everyday at closing time
+    return abs_pdf_hrefs[-1] # Latest is always the last, so should be updated everyday at closing time
 
 def extract_table_from_pdf(url):
     # Download the PDF file from the URL
