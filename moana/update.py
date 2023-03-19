@@ -103,11 +103,26 @@ def plot_lanes(df):
                     x=[row['Start time'], row['End time']],
                     y=[lane],
                     orientation='h',
-                    name=row['Item'], # TODO: make the text appear in 12hr time using datetime
+                    name=row['Activity'], # TODO: make the text appear in 12hr time using datetime
                     text=f"Activity: {row['Activity']}<br>Start time: {row['Start time']}<br>End time: {row['End time']}",
-                    hoverinfo='text'
+                    hoverinfo='text',
+                    marker=dict(
+                    color='rgba(246, 78, 139, 0.6)',
+                    line=dict(color='rgba(246, 78, 139, 1.0)', width=3))
                 )
                 traces.append(trace)
+                
+            # TODO: Each lane has one of these (where name is Lane 1, )
+            #     fig.add_trace(go.Bar(
+            #     y=['giraffes', 'orangutans', 'monkeys'],
+            #     x=[20, 14, 23],
+            #     name='SF Zoo',
+            #     orientation='h',
+            #     marker=dict(
+            #         color='rgba(246, 78, 139, 0.6)',
+            #         line=dict(color='rgba(246, 78, 139, 1.0)', width=3)
+            #     )
+            # ))
     
     # Create layout
     layout = go.Layout(
