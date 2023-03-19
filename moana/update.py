@@ -86,66 +86,12 @@ def do_stuff_to_df(df):
     return df   
 
 def plot_lanes(df):
-    # TODO: Title based on first row
-    # TODO: Check it removes the first row
-    # TODO: Check parsing 1-3 style lanes is correct
-    # TODO: Probably remove the 'Deep' part of lanes and use a range?
-    
-    # Otherwise thank mr gpt for helping with this project
-    title = df.columns[0].replace('All ', '') # Deep main,
+    title = df.columns[0].replace('All ', '') # e.g. Deep main
     
     # TODO: Dynamically caluclate this :)
     max_lanes = 8 # exclusive of the top
         
     good = ['Public Lane Swimming', 'Long Course Lane Swimming']
-    # Define the pool lanes
-    pool_lanes = range(1, max_lanes+1)
-    pool_lanes = [str(num) for num in pool_lanes]
-
-    # Create a figure and axis object
-    fig, ax = plt.subplots()
-
-    # Set the y-axis ticks and labels
-    ax.set_yticks(range(len(pool_lanes)))
-    ax.set_yticklabels(pool_lanes)
-
-
-    # Hacky fix, but will ask chatgpt later
-    # TODO: Fix this (original fix based on https://stackoverflow.com/questions/52696447/avoid-duplicate-legends-in-broken-barh)
-    lbl_pool = []
-
-    # Plot the activity bars for each pool lane
-    for i, lane in enumerate(pool_lanes):
-        lane_data = df[df['Item'].str.contains(lane)]
-        for index, row in lane_data.iterrows():
-            start_time = row['Start time']
-            end_time = row['End time']
-            activity = row['Activity']
-            if activity in lbl_pool:
-                prefix = '_'
-            else:
-                lbl_pool.append(activity)
-                prefix=''  
-            ax.barh(i, end_time - start_time, left=start_time, height=0.5, align='center', label=prefix+activity)
-
-    # Set the x-axis label
-    # TODO: Fix this https://stackoverflow.com/questions/66577395/python-plot-with-24-hrs-x-and-y-axis-using-only-hours-and-minutes-from-timestamp
-    ax.set_xlabel('Time')
-    hh_mm = DateFormatter('%H:%M')
-    ax.xaxis.set_major_formatter(hh_mm)
-
-
-    # Show the legend
-    ax.legend()
-    
-    ax.set_title(title)
-
-    # Show the plot
-    plt.show()
-
-def plot_lanes2(df):
-    # TODO: Dynamically caluclate this :)
-    max_lanes = 8 # exclusive of the top
 
     # Create plotly traces
     traces = []
@@ -157,7 +103,7 @@ def plot_lanes2(df):
                     x=[row['Start time'], row['End time']],
                     y=[lane],
                     orientation='h',
-                    name=row['Item'],
+                    name=row['Item'], # TODO: make the text appear in 12hr time using datetime
                     text=f"Activity: {row['Activity']}<br>Start time: {row['Start time']}<br>End time: {row['End time']}",
                     hoverinfo='text'
                 )
@@ -191,4 +137,4 @@ tables = extract_table_from_pdf(pdf_link)
 
 df = do_stuff_to_df(tables[0])
 
-plot_lanes2(df)
+plot_lanes(df)
