@@ -1,6 +1,6 @@
 # Get todays pdf URL
 import requests
-from bs4 import BeautifulSoup # bs4
+from bs4 import BeautifulSoup
 from datetime import datetime
 
 # Parse todays pdf URL
@@ -8,9 +8,7 @@ import tabula # tabula-py
 
 # Plot the lanes
 import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.dates import DateFormatter
-import plotly.graph_objs as go
+import plotly.express as px
 
 def get_pdf_link(url):
     # Send a request to the URL and get the HTML response
@@ -66,11 +64,14 @@ def laneify_item(row, max):
     elif '-' in row:
         start, end = map(int, row[row.rfind(' ')+1:].split('-'))
     else:
-        start = end = row[-1]
+        try:
+            start = end = int(row[-1]) # Fails on Waterslides
+        except:
+            start = end = 1
     
     return ",".join(map(str, range(start,end+1)))  
 
-def do_stuff_to_df(df):
+def do_stuff_to_df(df, max_lanes):
     # Rename the columns to match the previous layout
     df.columns = ['Item', 'Start time', 'End time', 'Activity']
 
@@ -78,71 +79,26 @@ def do_stuff_to_df(df):
     df = df.iloc[1:]
 
     # Convert the 'Start time' and 'End time' columns to datetime objects
-    # df['Start time'] = pd.to_datetime(df['Start time'])
-    # df['End time'] = pd.to_datetime(df['End time'])
-    
-    for index in df.index:
-        df.loc[index, 'Item'] = laneify_item(df.loc[index,'Item'], 8)
-    return df   
+    df['Start time'] = pd.to_datetime(df['Start time'])
+    df['End time'] = pd.to_datetime(df['End time'])
 
-def plot_lanes(df):
-    title = df.columns[0].replace('All ', '') # e.g. Deep main
+    # Convert to 12hr time
+    # df['Start time'] = df['Start time'].dt.strftime('%I:%M %p')
+    # df['End time'] = df['End time'].dt.strftime('%I:%M %p')
     
-    # TODO: Dynamically caluclate this :)
-    max_lanes = 8 # exclusive of the top
-        
-    good = ['Public Lane Swimming', 'Long Course Lane Swimming']
-
-    # Create plotly traces
-    traces = []
+    
     lanes = list(range(1, max_lanes+1))
-    for i, row in df.iterrows():
-        for lane in lanes:
-            if str(lane) in row['Item']:
-                trace = go.Bar(
-                    x=[row['Start time'], row['End time']],
-                    y=[lane],
-                    orientation='h',
-                    name=row['Activity'], # TODO: make the text appear in 12hr time using datetime
-                    text=f"Activity: {row['Activity']}<br>Start time: {row['Start time']}<br>End time: {row['End time']}",
-                    hoverinfo='text',
-                    marker=dict(
-                    color='rgba(246, 78, 139, 0.6)',
-                    line=dict(color='rgba(246, 78, 139, 1.0)', width=3))
-                )
-                traces.append(trace)
-                
-            # TODO: Each lane has one of these (where name is Lane 1, )
-            #     fig.add_trace(go.Bar(
-            #     y=['giraffes', 'orangutans', 'monkeys'],
-            #     x=[20, 14, 23],
-            #     name='SF Zoo',
-            #     orientation='h',
-            #     marker=dict(
-            #         color='rgba(246, 78, 139, 0.6)',
-            #         line=dict(color='rgba(246, 78, 139, 1.0)', width=3)
-            #     )
-            # ))
     
-    # Create layout
-    layout = go.Layout(
-        title='Swim Lanes Schedule',
-        xaxis=dict(
-            title='Time',
-            tickformat='%H:%M:%S'
-        ),
-        yaxis=dict(
-            title='Lanes',
-            tickvals=list(lanes),
-            ticktext=[f"Lane {i}" for i in lanes]
-        )
-    )
+    new_df = pd.DataFrame(columns =['Lane','Start time', 'End time', 'Activity'])
 
-    # Create figure
-    fig = go.Figure(data=traces, layout=layout)
-
-    # Show figure
-    fig.show()
+    for index in df.index:
+        df.loc[index, 'Item'] = laneify_item(df.loc[index,'Item'], max_lanes)
+        for lane in lanes:
+            if str(lane) in df.loc[index, 'Item']:
+                new_row = pd.DataFrame([{'Lane' : str(lane), 'Start time': df.loc[index,'Start time'], 'End time': df.loc[index,'End time'], 'Activity': df.loc[index,'Activity']}])
+                new_df = pd.concat([new_df, new_row])
+    
+    return new_df   
 
 pdf_link = get_pdf_link('https://www.dunedin.govt.nz/news-and-events/public-notices/moana-pool-timetable')
 print(pdf_link)
@@ -150,6 +106,15 @@ print(pdf_link)
 tables = extract_table_from_pdf(pdf_link)
 # TODO: If sat/sunday, then check which day and start from deep 1 or deep 2 (or just display both for the weekend and have twice as many)
 
-df = do_stuff_to_df(tables[0])
+MAX_LANES = 8 # TODO: Determine this number from the data
 
-plot_lanes(df)
+outputs = []
+for table in tables:
+    title = table.columns[0].replace(' ', '_').replace('/','-')
+    df = do_stuff_to_df(table, MAX_LANES)
+
+    fig = px.timeline(df, x_start="Start time", x_end="End time", y="Lane", color="Activity")
+    
+    if title not in outputs:
+        fig.write_image(f'{title}.png')
+        outputs.append(title)

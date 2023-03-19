@@ -2,6 +2,8 @@
 import pandas as pd
 import plotly.express as px
 
+# also need kaleido
+
 df = pd.DataFrame([
     {'Lane' : '1', 'Start time': '2023-03-19 05:30:00', 'End time': '2023-03-19 06:59:59', 'Activity': 'Dunedin Swim Coaching'},
     {'Lane' : '2', 'Start time': '2023-03-19 05:30:00', 'End time': '2023-03-19 06:59:59', 'Activity': 'Dunedin Swim Coaching'},
