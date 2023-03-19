@@ -135,6 +135,14 @@ MAX_LANES = 8 # TODO: Not hardcode total here
 # other greyed out colour for everything else?
 # maybe something for 25m Lane hire
 
+# TODO:
+# Just process every single link of the page...
+# and then have tabs like https://www.w3schools.com/howto/howto_js_tabs.asp
+# sat/sunday can be a single tab and just create images for all of them
+    # and for sat/sunday use https://stackoverflow.com/questions/54634571/create-new-files-dont-overwrite-existing-files-in-python
+    # to loop through the index of how many of that days things need to be made
+    # make folders for each day
+
 outputs = []
 for table in tables:
     title = table.columns[0].replace(' ', '_').replace('/','-')
