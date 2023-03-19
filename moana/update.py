@@ -10,6 +10,10 @@ import tabula # tabula-py
 import pandas as pd
 import plotly.express as px
 
+# Save files
+import os
+import shutil
+
 def get_pdf_link(url):
     # Send a request to the URL and get the HTML response
     response = requests.get(url)
@@ -32,7 +36,7 @@ def get_pdf_link(url):
     # Convert the hrefs to absolute URLs
     abs_pdf_hrefs = [requests.compat.urljoin(url, href) for href in pdf_hrefs]
 
-    return abs_pdf_hrefs[-1] # Latest is always the last, so should be updated everyday at closing time
+    return abs_pdf_hrefs[-2] # Latest is always the last, so should be updated everyday at closing time
 
 def extract_table_from_pdf(url):
     # Download the PDF file from the URL
@@ -62,7 +66,13 @@ def laneify_item(row, max):
     if 'All' in row:
         start, end = 1, max
     elif '-' in row:
-        start, end = map(int, row[row.rfind(' ')+1:].split('-'))
+        try:
+            # Ends with number
+            start, end = map(int, row[row.rfind(' ')+1:].split('-'))
+        except:
+            # Ends with text after number (eg 1-3 West)
+            shorter = row[:row.rfind(' ')]
+            start, end = map(int, shorter[shorter.rfind(' ')+1:].split('-'))
     else:
         try:
             start = end = int(row[-1]) # Fails on Waterslides
@@ -72,10 +82,13 @@ def laneify_item(row, max):
     return ",".join(map(str, range(start,end+1)))  
 
 def do_stuff_to_df(df, max_lanes):
+    # Remove any additional columns that aren't always there (e.g. comments)
+    df = df.iloc[:, : 4]
+    
     # Rename the columns to match the previous layout
     df.columns = ['Item', 'Start time', 'End time', 'Activity']
 
-    # Exclude the first row, which contains the column names
+    # Exclude the first row, which contains the column names from extracting
     df = df.iloc[1:]
 
     # Convert the 'Start time' and 'End time' columns to datetime objects
@@ -106,7 +119,21 @@ print(pdf_link)
 tables = extract_table_from_pdf(pdf_link)
 # TODO: If sat/sunday, then check which day and start from deep 1 or deep 2 (or just display both for the weekend and have twice as many)
 
-MAX_LANES = 8 # TODO: Determine this number from the data
+MAX_LANES = 8 # TODO: Not hardcode total here
+
+# TODO: Setup colours based on a dictionary...
+# Yellow for public lane and long course
+# blue for aqua jogging
+# red for Coaching / training
+# gold for club
+# gold for championship
+# Facility Closed
+# polo
+# synchronised
+# diving
+# Public Fun Area
+# other greyed out colour for everything else?
+# maybe something for 25m Lane hire
 
 outputs = []
 for table in tables:
@@ -115,6 +142,14 @@ for table in tables:
 
     fig = px.timeline(df, x_start="Start time", x_end="End time", y="Lane", color="Activity")
     
+    # Delete existing folder and create a new one
+    if not os.path.exists('images-pool'):
+        os.mkdir("images-pool")
+    elif os.path.exists(f'images-pool/{title}.png'):
+        os.remove(f'images-pool/{title}.png')
+    
+    fig.update_yaxes(categoryorder='array', categoryarray= ['1', '2', '3', '4', '5', '6', '7', '8']) # TODO: Not hardcode total here
+
     if title not in outputs:
-        fig.write_image(f'{title}.png')
+        fig.write_image(f'images-pool/{title}.png')
         outputs.append(title)
