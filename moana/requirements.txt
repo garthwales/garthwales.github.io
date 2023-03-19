@@ -1,0 +1,5 @@
+plotly
+kaleido
+tabula-py
+pandas
+bs4
