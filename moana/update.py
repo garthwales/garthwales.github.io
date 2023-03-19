@@ -8,6 +8,7 @@ import tabula # tabula-py
 
 # Plot the lanes
 import pandas as pd
+import plotly
 import plotly.express as px
 
 # Save files
@@ -161,3 +162,7 @@ for table in tables:
     if title not in outputs:
         fig.write_image(f'images-pool/{title}.png')
         outputs.append(title)
+        
+        # TODO: Save each of these and imbed as iframe?
+        # each < 10MB so is big for a website but doable? might be other better ways but eh
+        # plotly.offline.plot(fig,filename=f'{title}.html',config={'displayModeBar': False})
