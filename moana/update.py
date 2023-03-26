@@ -123,9 +123,12 @@ tables = extract_table_from_pdf(pdf_link)
 MAX_LANES = 8 # TODO: Not hardcode total here
 
 # TODO: Setup colours based on a dictionary...
+# TODO: Either it is like using color_discrete_map in timeline
+#       or use a dict to append another column and use the column to specify?
+
 # Yellow for public lane and long course
 # blue for aqua jogging
-# red for Coaching / training
+# red for Coaching / training (or for Facicility Closed)
 # gold for club
 # gold for championship
 # Facility Closed
@@ -149,7 +152,7 @@ for table in tables:
     title = table.columns[0].replace(' ', '_').replace('/','-')
     df = do_stuff_to_df(table, MAX_LANES)
 
-    fig = px.timeline(df, x_start="Start time", x_end="End time", y="Lane", color="Activity")
+    fig = px.timeline(df,title=title, x_start="Start time", x_end="End time", y="Lane", color="Activity")
     
     # Delete existing folder and create a new one
     if not os.path.exists('images-pool'):
