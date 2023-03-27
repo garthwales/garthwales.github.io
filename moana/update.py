@@ -139,6 +139,9 @@ MAX_LANES = 8 # TODO: Not hardcode total here
 # other greyed out colour for everything else?
 # maybe something for 25m Lane hire
 
+# TODO: take a screenshot and colour it in a photo editor, to visualise the palette and then set these (currently looks bad)
+colour_map = {'Dunedin Swim Coaching':'rgb(30, 157, 247)', 'Long Course Lane Swimming':'rgb(247, 218, 30)', 'Pool Set-Up Short Course':'rgb(247, 218, 140)', 'Public Lane Swimming':'rgb(247, 243, 30)', 'Neptune Swim Club':'rgb(171, 30, 247)', 'Pool Staff Training':'rgb(236, 30, 247)', 'Aqua Jogging':'rgb(59, 30, 247)',}
+
 # TODO:
 # Just process every single link of the page...
 # and then have tabs like https://www.w3schools.com/howto/howto_js_tabs.asp
@@ -152,7 +155,7 @@ for table in tables:
     title = table.columns[0].replace(' ', '_').replace('/','-')
     df = do_stuff_to_df(table, MAX_LANES)
 
-    fig = px.timeline(df,title=title, x_start="Start time", x_end="End time", y="Lane", color="Activity")
+    fig = px.timeline(df,title=title, x_start="Start time", x_end="End time", y="Lane", color="Activity", color_discrete_map=colour_map)
     
     # Delete existing folder and create a new one
     if not os.path.exists('images-pool'):
@@ -168,4 +171,4 @@ for table in tables:
         
         # TODO: Save each of these and imbed as iframe?
         # each < 10MB so is big for a website but doable? might be other better ways but eh
-        # plotly.offline.plot(fig,filename=f'{title}.html',config={'displayModeBar': False})
+        plotly.offline.plot(fig,filename=f'images-pool/{title}.html',config={'displayModeBar': False})
