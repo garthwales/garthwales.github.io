@@ -33,6 +33,7 @@ def get_pdf_link(url):
     now = datetime.now()
     formatted_date = now.strftime("%a-%d") # TODO: remove this
     pdf_hrefs = [href for href in hrefs if href and href.endswith('.pdf')] # and formatted_date in href
+    print(pdf_hrefs)
     
     # Convert the hrefs to absolute URLs
     abs_pdf_hrefs = [requests.compat.urljoin(url, href) for href in pdf_hrefs]
@@ -149,6 +150,14 @@ colour_map = {'Dunedin Swim Coaching':'rgb(30, 157, 247)', 'Long Course Lane Swi
     # and for sat/sunday use https://stackoverflow.com/questions/54634571/create-new-files-dont-overwrite-existing-files-in-python
     # to loop through the index of how many of that days things need to be made
     # make folders for each day
+    
+# TODO:
+# as the formats of the tables change regularly (different people outputing the pdfs...)
+# automatically detect the order of rows (time, time, activity) (activity, time, time, notes)
+# notes tends to be optional and last
+# can determine the start/stop order of times based on which is smaller
+# determine if the time is in 24hr or AM
+# and also test on a weekend one
 
 outputs = []
 for table in tables:
