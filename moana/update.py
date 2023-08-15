@@ -32,24 +32,19 @@ def get_pdf_link(url):
     # Filter the hrefs to only keep the ones that end with '.pdf' and contain the formatted date
     now = datetime.now()
     formatted_date = now.strftime("%a-%d") # TODO: remove this
-    pdf_hrefs = [href for href in hrefs if href and href.endswith('.pdf')] # and formatted_date in href
+    pdf_hrefs = [href for href in hrefs if href and href.endswith('.pdf')]
     print(pdf_hrefs)
     
     # Convert the hrefs to absolute URLs
     abs_pdf_hrefs = [requests.compat.urljoin(url, href) for href in pdf_hrefs]
 
-    return abs_pdf_hrefs[-1] # Latest is always the last, so should be updated everyday at closing time
+    pos = len(pdf_hrefs)//2 -1
+    
+    return abs_pdf_hrefs[pos] # Instead of date, just use the last (assumes mosgiel has been updated as well)
 
 def extract_table_from_pdf(url):
-    # Download the PDF file from the URL
-    response = requests.get(url)
-    with open('temp.pdf', 'wb') as f:
-        f.write(response.content)
-    f.close()
-
     # Extract the table data from the PDF file using Tabula
-    df = tabula.read_pdf('temp.pdf', pages='all', multiple_tables=True, lattice=True)
-
+    df = tabula.read_pdf(url, pages='all', multiple_tables=True, lattice=True)
     return df
 
 def last_word(s):
@@ -88,7 +83,7 @@ def do_stuff_to_df(df, max_lanes):
     df = df.iloc[:, : 4]
     
     # Rename the columns to match the previous layout
-    df.columns = ['Item', 'Start time', 'End time', 'Activity']
+    df.columns = ['Start time', 'End time', 'Item', 'Activity']
 
     # Exclude the first row, which contains the column names from extracting
     df = df.iloc[1:]
